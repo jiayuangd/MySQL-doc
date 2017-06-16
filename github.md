@@ -56,6 +56,7 @@ $ git config --global user.email
 $ git config --global core.editor vim
 ```
 ### 提交
+提交之前需要先关注，加入仓库。
 ```
 $ git commit
 ```
