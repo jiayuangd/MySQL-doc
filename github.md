@@ -131,7 +131,7 @@ git生成patch
 $ git format-patch -p1
 ```
 git 打patch
-``
+```
 $ git am patch-name
 ```
 
