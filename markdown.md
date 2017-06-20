@@ -53,3 +53,48 @@ _You **can** combine them_
 - [ ] Push my commits to GitHub
 - [ ] Open a pull request
 ```
+### 段落
+
+段落的前后要有空行，所谓的空行是指没有文字内容。若想在段内强制换行的方式是使用两个以上空格加上回车（引用中换行省略回车）。
+
+### 区块引用
+
+在段落的每行或者只在第一行使用符号>,还可使用多个嵌套引用，如：
+```
+> 区块引用
+>> 嵌套引用
+```
+### 链接
+```
+[github](http://github.com)
+```
+效果:
+github
+
+### 图片
+```
+If you want to embed images, this is how you do it:
+
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+```
+### 代码块
+```c
+#include <stdio.h>
+int main(void){
+printf(“hello world!”);
+return 0;
+}
+```
+支持Emoji表情
+
+@octocat :+1: This PR looks great - it's ready to merge! :shipit:
+
+表格
+
+标题 | 内容 | 备注
+-----|------|-----
+今天 | 很热 | 少穿
+昨天 | 下雨 | 打伞
+
+
+
