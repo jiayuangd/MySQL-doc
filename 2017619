@@ -1,0 +1,6 @@
+ 安装atom 
+ 在atom中安装Atom editor开发环境使用的插件
+ 下载cgi-stu。zip，然后在虚拟机中将Apache开启CGI
+ 安装MySQL的C语言库
+ 配置Makefile
+ 查看stu中的文件，修改其中的错误。make，make install，在本地服务器中打开这个文件，查看增删改查。
