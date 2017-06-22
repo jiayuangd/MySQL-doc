@@ -76,7 +76,7 @@ int cgiMain()
 	}
 
 
-	sprintf(sql, "update info set name='%s', age= %d, sex='%s', dept='%s' where stuId = %d and state='0'", name, atoi(age), sex, dept, atoi(stuId));
+	sprintf(sql, "update info set name='%s', age= %d, sex='%s', dept='%s' where stuId = %d and state='1'", name, atoi(age), sex, dept, atoi(stuId));
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
 		fprintf(cgiOut,"mysql_real_query fail:%s\n", mysql_error(db));

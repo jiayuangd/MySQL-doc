@@ -21,6 +21,13 @@ int cgiMain()
 		return 1;
 	}
 
+	status = cgiFormString("flag",  flag, 4);
+	if (status != cgiFormSuccess)
+	{
+		fprintf(cgiOut, "get flag error!\n");
+		return 1;
+	}
+
 
 	int ret;
 	char sql[128] = "\0";
