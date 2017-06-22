@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <mysql/mysql.h>
 #include "cgic.h"
-
+char * headname = "head.html";
+char * footname = "footer.html";
 int cgiMain()
 {
 
@@ -13,6 +14,22 @@ int cgiMain()
 	int status = 0;
 	char flag[4]="\0";
 
+	FILE * fd;
+	//char name[32] = "\0";
+	char ch;
+
+	//fprintf(cgiOut, "Content-type:text/html;charset=utf-8\n\n");
+	if(!(fd = fopen(headname, "r"))){
+		fprintf(cgiOut, "Cannot open file, %s\n", headname);
+		return -1;
+	}
+	ch = fgetc(fd);
+
+	while(ch != EOF){
+		fprintf(cgiOut, "%c", ch);
+		ch = fgetc(fd);
+	}
+  fclose(fd);
 
 	status = cgiFormString("stuId",  stuId, 32);
 	if (status != cgiFormSuccess)
@@ -51,7 +68,7 @@ int cgiMain()
 	}
 
 	if(flag[0]=='1'){
-		sprintf(sql, "delete from info where stuId = %d", atoi(stuId));
+		sprintf(sql, "delete from info where stuId =%d", atoi(stuId));
 		if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 		{
 			fprintf(cgiOut,"mysql_real_query fail:%s\n", mysql_error(db));
@@ -59,7 +76,7 @@ int cgiMain()
 			return -1;
 		}
 	}else{
-		sprintf(sql, "update info set state='0' where stuId = %d", atoi(stuId));
+		sprintf(sql, "update info set state='0' where stuId =%d", atoi(stuId));
 		if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 		{
 			fprintf(cgiOut,"mysql_real_query fail:%s\n", mysql_error(db));
@@ -70,7 +87,7 @@ int cgiMain()
 
 
 
-	fprintf(cgiOut, "delete stu ok!\n");
+	fprintf(cgiOut, "delete info ok!\n");
 	mysql_close(db);
 
 	return 0;
