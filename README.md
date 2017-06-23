@@ -10,5 +10,5 @@
 
 数据库设计：
 ---
-* [stu](./stu.md)
+* [stu](https://github.com/)
 
