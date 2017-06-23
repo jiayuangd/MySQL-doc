@@ -1,7 +1,10 @@
 
 # ubuntu
 下载ubuntu-16.04.2-desktop-amd64.iso文件在虚拟机中安装，新建虚拟机。
-安装VMware-tools，安装VIM，git,然后配置VIM，装入输入法。
+
+安装VMware-tools。
+
+安装VIM，git,然后配置VIM，装入输入法。
 
 # Linux 操作系统组成
 一个典型的Linux操作系统组成为：Linux内核，一些GNU程序库和工具，命令行shell，图形界面的X Window系统和相应的桌面环境，如KDE或GNOME，并包含数千种从办公套件，编译器，文本编辑器到科学工具的应用软件。
