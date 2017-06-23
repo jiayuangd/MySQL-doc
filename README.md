@@ -12,9 +12,12 @@
 
 技术文档：
 ---
-* []
+* [linux](./linux.md)
+* [github](./github.md)
+* [markdown](./markdown)
+* [数据库](./数据库.md)
 
 数据库设计：
 ---
-* [stu]()
+* [STU](STU.md)
 
