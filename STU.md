@@ -66,6 +66,6 @@ create table course(cno char(4) primary key, cname char(40) not null,
 成绩    |grade   |int(10)  |
 
 ## 关系图：
-![](img/ER图.jpg)
+![](img/ER图.png)
 
 
