@@ -18,107 +18,107 @@ Initialized empty Git repository in /home/user/html/.git/
 
 马上就把仓库创建成功了, 并提示这是一个空仓库.
 
-$ ls -al
+ ls -al
 
 .git
 ### 增加文件
 1. 创建一个文件README.
 ```
-$ touch README
+ touch README
 ```
 2. 编辑这个文件, 写一点东西在里面.
 ```
-$ vim README
+ vim README
 ```
 3. 先用查看当前状态的命令, 查看一下现在目录下文件的状态.
 ```
-$ git status
+ git status
 ```
 4. 把文件加到仓库中去, 只有加到仓库中了, 才可能看一下文件的变化.
 ```
-$ git add README
+ git add README
 ```
 5. 现在使用查看状态的命令, 看一下是目录下文件的状态.
 ```
-$ git status
+ git status
 ```
 ### 配置用户信息
 配置用户名, 这个用户名是你的提交patch的名字
 ```
-$ git config --global user.name
+ git config --global user.name
 ```
 配置用户邮箱
 ```
-$ git config --global user.email
+ git config --global user.email
 ```
 配置编辑提交信息的编辑器, 我们熟悉的编辑器是vim.
 ```
-$ git config --global core.editor vim
+ git config --global core.editor vim
 ```
 ### 提交
 提交之前需要先关注，加入仓库。
 ```
-$ git commit
+ git commit
 ```
 ### 查看提交信息
 ```
-$ git log
+ git log
 ```
 ### GIT基本命令
 #### 删除文件恢复
 把仓库里的README这个文件给删除了. 然后再使用ls命令查看文件, 看看这个文件是否还存在.
 ```
-$ rm README
-$ ls
-$ ls -al
+ rm README
+ ls
+ ls -al
 ```
 文件已经被删除，用linux基本命令去查看文件是不是还存在这个目录中，使用git去查看一下现在仓库是什么状态
 ```
-$ git status
+ git status
 ```
 发现这个文件是误删了, 我们想把它恢复回来, 如果没有将这个文件提交到仓库里, 我们是没有办法将它恢复的.
 ```
-$ git checkout README
+ git checkout README
 ```
 然后我们再用ls查看一下文件是否存在.
 ```
-$ ls -al
+ ls -al
 ```
 再查看git仓库是状态
 ```
-$ git status
+ git status
 ```
 #### 版本回退
 一次提交就相当于一个版本. 如果更准确的说是提交的回退. 每一次提交都会将修改的状态提交到仓库中保存着, 这些信息都保存那里呢?都保存在.git的目录下.
 如果想回退到上次提交的版本, 那么需要使用git reset命令.
 ```
-$ git reset --hard commitID
+ git reset --hard commitID
 ```
 在这里我们需要使用git reflog命令查看后一次提交的CommitID, 如果已经有了后一次提交的CommitID, 那么我们需要使用git reset命令恢复到前面提交版本.
 ```
-$ git reflog
+ git reflog
 ```
 #### 从仓库中删除文件
 
 如果将文件从仓库中删除这个文件, 需要使用git rm.
 ```
-$ git rm filename
+ git rm filename
 ```
 这只是做了删除操作, 但没有真正的从仓库中删除, 我们只要将删除再做一次提交到仓库.
 ```
-$ git commit
+ git commit
 ```
 #### 从版本库中忽略文件
 
 如果在我们的仓库目录里会产生三方的临时垃圾文件或是
 
-$ touch .gitignore
+ touch .gitignore
 
 #### 版本之间对比
 
-$ git diff
+ git diff
 
-$ git diff commitID1 commitID2
+ git diff commitID1 commitID2
 
 #### 什么是patch
 
@@ -128,10 +128,32 @@ patch实际上是保存两个文件的差异.
 
 git生成patch
 ```
-$ git format-patch -p1
+ git format-patch -p1
 ```
 git 打patch
 ```
-$ git am patch-name
+ git am patch-name
 ```
+### 远程仓库
+#### 添加远程仓库
+如果我们现在本地有一个git仓库, 我们使用remote add 命令将它添加到远程的仓库中。
+
+git remote add origin https://github.com/jiayuangd/MySQL-doc.git
+
+并需要将远程的仓库的信息更步到本地, 这里主要指的示远程仓库的分支和远程库的提交变更信息.
+
+git fetch origin
+
+### 从远程仓库同步
+#### clone
+
+当我们知道git仓库的地址, 就可以使用下面的命令将源码拉取到本地.
+
+ git clone url
+#### pull
+我们已经拉取源码到本地了, 但是服务器上的git已经更新了, 当我们需要将服务器的源码与本地源友进行同步进时, 需要使用下面的命令.
+
+git pull
+
+
 
