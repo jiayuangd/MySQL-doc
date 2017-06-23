@@ -13,7 +13,7 @@ int cgiMain()
   char cname[40]="\0";
 	int status = 0;
 	char credit[6]="\0";
-
+	char teacher[45]="\0";
 	FILE * fd;
 	//char name[32] = "\0";
 	char ch;
@@ -51,6 +51,13 @@ int cgiMain()
 		fprintf(cgiOut, "get credit error!\n");
 		return 1;
 	}
+
+	status = cgiFormString("teacher",teacher, 45);
+	if (status != cgiFormSuccess)
+	{
+		fprintf(cgiOut, "get teacher error!\n");
+		return 1;
+	}
 	//fprintf(cgiOut, "name = %s, age = %s, stuId = %s\n", name, age, stuId);
 
   //	int ret;
@@ -86,7 +93,7 @@ int cgiMain()
 			return -1;
 		}
 	}*/
-	sprintf(sql, "insert into course values('%s','%s','%s')",cno, cname, credit);
+	sprintf(sql, "insert into course values('%s','%s','%s','%s')",cno, cname,teacher, credit);
 	if (mysql_real_query(db, sql, strlen(sql) + 1) != 0)
 	{
 		fprintf(cgiOut, "%s\n", mysql_error(db));
